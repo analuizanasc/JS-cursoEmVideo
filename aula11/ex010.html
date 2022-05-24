@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DETRAN</title>
+    <style>
+        body {
+            background-image: url(../img/estrada.jpeg); 
+            text-align: center;         
+        }
+
+        .quadro {
+            background-color: white;
+            margin: 100px 240px;
+            height: 130px;
+            border-radius: 20px;
+        }
+
+        h1 {
+            padding-top: 20px;
+        }
+
+        div#resultado {
+            background-color: white;
+            margin: 100px 300px;
+            border-radius: 20px;
+            
+        }
+
+    </style>
+</head>
+<body>
+    <div class = "quadro">
+        <h1>Sistemas de multas</h1>
+        Velocidade do carro: <input type="number" name="velocidade" id="velocidade"> Km/h
+        <input type="button" value="Verificar" onclick="calcular()">
+    </div>
+    <div id="resultado"></div>
+
+    <script>
+        function calcular() {
+            var vel = document.querySelector('input#velocidade')
+            var resultado = document.querySelector('div#resultado')
+            var velocidade = Number(vel.value)
+            resultado.innerHTML = `<p>Sua velocidade foi de <strong>${velocidade} Km/h</strong>.</p>`
+            if (velocidade > 80) {
+                resultado.innerHTML += `<p>Você foi multado por <strong><span style= "color: red;">excesso de velocidade</span></strong>!</p>`
+            }
+            resultado.innerHTML += 'Dirija sempre com cuidado! Use o cinto de segurança!'
+        }
+    </script>
+</body>
+</html>
